@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.RecordMapper">
+  <resultMap id="BaseResultMap" type="com.entity.Record">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="date" jdbcType="DATE" property="date" />
+    <result column="time" jdbcType="TIME" property="time" />
+    <result column="machine" jdbcType="VARCHAR" property="machine" />
+    <result column="mouldNo" jdbcType="VARCHAR" property="mouldno" />
+    <result column="injectionMachineNo" jdbcType="VARCHAR" property="injectionmachineno" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, date, time, machine, mouldNo, injectionMachineNo, remarks
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.Record">
+    insert into record (id, date, time, machine, 
+      mouldNo, injectionMachineNo, remarks
+      )
+    values (#{id,jdbcType=INTEGER}, #{date,jdbcType=DATE}, #{time,jdbcType=TIME}, #{machine,jdbcType=VARCHAR}, 
+      #{mouldno,jdbcType=VARCHAR}, #{injectionmachineno,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.Record">
+    insert into record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="date != null">
+        date,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="machine != null">
+        machine,
+      </if>
+      <if test="mouldno != null">
+        mouldNo,
+      </if>
+      <if test="injectionmachineno != null">
+        injectionMachineNo,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=DATE},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIME},
+      </if>
+      <if test="machine != null">
+        #{machine,jdbcType=VARCHAR},
+      </if>
+      <if test="mouldno != null">
+        #{mouldno,jdbcType=VARCHAR},
+      </if>
+      <if test="injectionmachineno != null">
+        #{injectionmachineno,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.Record">
+    update record
+    <set>
+      <if test="date != null">
+        date = #{date,jdbcType=DATE},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIME},
+      </if>
+      <if test="machine != null">
+        machine = #{machine,jdbcType=VARCHAR},
+      </if>
+      <if test="mouldno != null">
+        mouldNo = #{mouldno,jdbcType=VARCHAR},
+      </if>
+      <if test="injectionmachineno != null">
+        injectionMachineNo = #{injectionmachineno,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.Record">
+    update record
+    set date = #{date,jdbcType=DATE},
+      time = #{time,jdbcType=TIME},
+      machine = #{machine,jdbcType=VARCHAR},
+      mouldNo = #{mouldno,jdbcType=VARCHAR},
+      injectionMachineNo = #{injectionmachineno,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.DelayedMapper">
+  <resultMap id="BaseResultMap" type="com.entity.Delayed">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="delayed1" jdbcType="REAL" property="delayed1" />
+    <result column="delayed2" jdbcType="REAL" property="delayed2" />
+    <result column="delayed3" jdbcType="REAL" property="delayed3" />
+    <result column="delayed4" jdbcType="REAL" property="delayed4" />
+    <result column="delayed5" jdbcType="REAL" property="delayed5" />
+    <result column="delayed6" jdbcType="REAL" property="delayed6" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, delayed1, delayed2, delayed3, delayed4, delayed5, delayed6
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from delayed
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from delayed
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.Delayed">
+    insert into delayed (id, delayed1, delayed2, 
+      delayed3, delayed4, delayed5, 
+      delayed6)
+    values (#{id,jdbcType=INTEGER}, #{delayed1,jdbcType=REAL}, #{delayed2,jdbcType=REAL}, 
+      #{delayed3,jdbcType=REAL}, #{delayed4,jdbcType=REAL}, #{delayed5,jdbcType=REAL}, 
+      #{delayed6,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.Delayed">
+    insert into delayed
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="delayed1 != null">
+        delayed1,
+      </if>
+      <if test="delayed2 != null">
+        delayed2,
+      </if>
+      <if test="delayed3 != null">
+        delayed3,
+      </if>
+      <if test="delayed4 != null">
+        delayed4,
+      </if>
+      <if test="delayed5 != null">
+        delayed5,
+      </if>
+      <if test="delayed6 != null">
+        delayed6,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="delayed1 != null">
+        #{delayed1,jdbcType=REAL},
+      </if>
+      <if test="delayed2 != null">
+        #{delayed2,jdbcType=REAL},
+      </if>
+      <if test="delayed3 != null">
+        #{delayed3,jdbcType=REAL},
+      </if>
+      <if test="delayed4 != null">
+        #{delayed4,jdbcType=REAL},
+      </if>
+      <if test="delayed5 != null">
+        #{delayed5,jdbcType=REAL},
+      </if>
+      <if test="delayed6 != null">
+        #{delayed6,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.Delayed">
+    update delayed
+    <set>
+      <if test="delayed1 != null">
+        delayed1 = #{delayed1,jdbcType=REAL},
+      </if>
+      <if test="delayed2 != null">
+        delayed2 = #{delayed2,jdbcType=REAL},
+      </if>
+      <if test="delayed3 != null">
+        delayed3 = #{delayed3,jdbcType=REAL},
+      </if>
+      <if test="delayed4 != null">
+        delayed4 = #{delayed4,jdbcType=REAL},
+      </if>
+      <if test="delayed5 != null">
+        delayed5 = #{delayed5,jdbcType=REAL},
+      </if>
+      <if test="delayed6 != null">
+        delayed6 = #{delayed6,jdbcType=REAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.Delayed">
+    update delayed
+    set delayed1 = #{delayed1,jdbcType=REAL},
+      delayed2 = #{delayed2,jdbcType=REAL},
+      delayed3 = #{delayed3,jdbcType=REAL},
+      delayed4 = #{delayed4,jdbcType=REAL},
+      delayed5 = #{delayed5,jdbcType=REAL},
+      delayed6 = #{delayed6,jdbcType=REAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

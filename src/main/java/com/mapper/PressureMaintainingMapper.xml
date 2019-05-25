@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.PressureMaintainingMapper">
+  <resultMap id="BaseResultMap" type="com.entity.PressureMaintaining">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="switchPosition" jdbcType="INTEGER" property="switchposition" />
+    <result column="pressure_maintainingP1" jdbcType="INTEGER" property="pressureMaintainingp1" />
+    <result column="pressure_maintainingS1" jdbcType="INTEGER" property="pressureMaintainings1" />
+    <result column="pressure_maintainingT1" jdbcType="REAL" property="pressureMaintainingt1" />
+    <result column="pressure_maintainingP2" jdbcType="INTEGER" property="pressureMaintainingp2" />
+    <result column="pressure_maintainingS2" jdbcType="INTEGER" property="pressureMaintainings2" />
+    <result column="pressure_maintainingT2" jdbcType="REAL" property="pressureMaintainingt2" />
+    <result column="pressure_maintainingP3" jdbcType="INTEGER" property="pressureMaintainingp3" />
+    <result column="pressure_maintainingS3" jdbcType="INTEGER" property="pressureMaintainings3" />
+    <result column="pressure_maintainingT3" jdbcType="REAL" property="pressureMaintainingt3" />
+    <result column="pressure_maintainingP4" jdbcType="INTEGER" property="pressureMaintainingp4" />
+    <result column="pressure_maintainingS4" jdbcType="INTEGER" property="pressureMaintainings4" />
+    <result column="pressure_maintainingT4" jdbcType="REAL" property="pressureMaintainingt4" />
+    <result column="pressure_maintainingP5" jdbcType="INTEGER" property="pressureMaintainingp5" />
+    <result column="pressure_maintainingS5" jdbcType="INTEGER" property="pressureMaintainings5" />
+    <result column="pressure_maintainingT5" jdbcType="REAL" property="pressureMaintainingt5" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, switchPosition, pressure_maintainingP1, pressure_maintainingS1, pressure_maintainingT1, 
+    pressure_maintainingP2, pressure_maintainingS2, pressure_maintainingT2, pressure_maintainingP3, 
+    pressure_maintainingS3, pressure_maintainingT3, pressure_maintainingP4, pressure_maintainingS4, 
+    pressure_maintainingT4, pressure_maintainingP5, pressure_maintainingS5, pressure_maintainingT5
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pressure_maintaining
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from pressure_maintaining
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.PressureMaintaining">
+    insert into pressure_maintaining (id, switchPosition, pressure_maintainingP1, 
+      pressure_maintainingS1, pressure_maintainingT1, 
+      pressure_maintainingP2, pressure_maintainingS2, 
+      pressure_maintainingT2, pressure_maintainingP3, 
+      pressure_maintainingS3, pressure_maintainingT3, 
+      pressure_maintainingP4, pressure_maintainingS4, 
+      pressure_maintainingT4, pressure_maintainingP5, 
+      pressure_maintainingS5, pressure_maintainingT5
+      )
+    values (#{id,jdbcType=INTEGER}, #{switchposition,jdbcType=INTEGER}, #{pressureMaintainingp1,jdbcType=INTEGER}, 
+      #{pressureMaintainings1,jdbcType=INTEGER}, #{pressureMaintainingt1,jdbcType=REAL}, 
+      #{pressureMaintainingp2,jdbcType=INTEGER}, #{pressureMaintainings2,jdbcType=INTEGER}, 
+      #{pressureMaintainingt2,jdbcType=REAL}, #{pressureMaintainingp3,jdbcType=INTEGER}, 
+      #{pressureMaintainings3,jdbcType=INTEGER}, #{pressureMaintainingt3,jdbcType=REAL}, 
+      #{pressureMaintainingp4,jdbcType=INTEGER}, #{pressureMaintainings4,jdbcType=INTEGER}, 
+      #{pressureMaintainingt4,jdbcType=REAL}, #{pressureMaintainingp5,jdbcType=INTEGER}, 
+      #{pressureMaintainings5,jdbcType=INTEGER}, #{pressureMaintainingt5,jdbcType=REAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.PressureMaintaining">
+    insert into pressure_maintaining
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="switchposition != null">
+        switchPosition,
+      </if>
+      <if test="pressureMaintainingp1 != null">
+        pressure_maintainingP1,
+      </if>
+      <if test="pressureMaintainings1 != null">
+        pressure_maintainingS1,
+      </if>
+      <if test="pressureMaintainingt1 != null">
+        pressure_maintainingT1,
+      </if>
+      <if test="pressureMaintainingp2 != null">
+        pressure_maintainingP2,
+      </if>
+      <if test="pressureMaintainings2 != null">
+        pressure_maintainingS2,
+      </if>
+      <if test="pressureMaintainingt2 != null">
+        pressure_maintainingT2,
+      </if>
+      <if test="pressureMaintainingp3 != null">
+        pressure_maintainingP3,
+      </if>
+      <if test="pressureMaintainings3 != null">
+        pressure_maintainingS3,
+      </if>
+      <if test="pressureMaintainingt3 != null">
+        pressure_maintainingT3,
+      </if>
+      <if test="pressureMaintainingp4 != null">
+        pressure_maintainingP4,
+      </if>
+      <if test="pressureMaintainings4 != null">
+        pressure_maintainingS4,
+      </if>
+      <if test="pressureMaintainingt4 != null">
+        pressure_maintainingT4,
+      </if>
+      <if test="pressureMaintainingp5 != null">
+        pressure_maintainingP5,
+      </if>
+      <if test="pressureMaintainings5 != null">
+        pressure_maintainingS5,
+      </if>
+      <if test="pressureMaintainingt5 != null">
+        pressure_maintainingT5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="switchposition != null">
+        #{switchposition,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainingp1 != null">
+        #{pressureMaintainingp1,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainings1 != null">
+        #{pressureMaintainings1,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainingt1 != null">
+        #{pressureMaintainingt1,jdbcType=REAL},
+      </if>
+      <if test="pressureMaintainingp2 != null">
+        #{pressureMaintainingp2,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainings2 != null">
+        #{pressureMaintainings2,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainingt2 != null">
+        #{pressureMaintainingt2,jdbcType=REAL},
+      </if>
+      <if test="pressureMaintainingp3 != null">
+        #{pressureMaintainingp3,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainings3 != null">
+        #{pressureMaintainings3,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainingt3 != null">
+        #{pressureMaintainingt3,jdbcType=REAL},
+      </if>
+      <if test="pressureMaintainingp4 != null">
+        #{pressureMaintainingp4,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainings4 != null">
+        #{pressureMaintainings4,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainingt4 != null">
+        #{pressureMaintainingt4,jdbcType=REAL},
+      </if>
+      <if test="pressureMaintainingp5 != null">
+        #{pressureMaintainingp5,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainings5 != null">
+        #{pressureMaintainings5,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainingt5 != null">
+        #{pressureMaintainingt5,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.PressureMaintaining">
+    update pressure_maintaining
+    <set>
+      <if test="switchposition != null">
+        switchPosition = #{switchposition,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainingp1 != null">
+        pressure_maintainingP1 = #{pressureMaintainingp1,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainings1 != null">
+        pressure_maintainingS1 = #{pressureMaintainings1,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainingt1 != null">
+        pressure_maintainingT1 = #{pressureMaintainingt1,jdbcType=REAL},
+      </if>
+      <if test="pressureMaintainingp2 != null">
+        pressure_maintainingP2 = #{pressureMaintainingp2,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainings2 != null">
+        pressure_maintainingS2 = #{pressureMaintainings2,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainingt2 != null">
+        pressure_maintainingT2 = #{pressureMaintainingt2,jdbcType=REAL},
+      </if>
+      <if test="pressureMaintainingp3 != null">
+        pressure_maintainingP3 = #{pressureMaintainingp3,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainings3 != null">
+        pressure_maintainingS3 = #{pressureMaintainings3,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainingt3 != null">
+        pressure_maintainingT3 = #{pressureMaintainingt3,jdbcType=REAL},
+      </if>
+      <if test="pressureMaintainingp4 != null">
+        pressure_maintainingP4 = #{pressureMaintainingp4,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainings4 != null">
+        pressure_maintainingS4 = #{pressureMaintainings4,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainingt4 != null">
+        pressure_maintainingT4 = #{pressureMaintainingt4,jdbcType=REAL},
+      </if>
+      <if test="pressureMaintainingp5 != null">
+        pressure_maintainingP5 = #{pressureMaintainingp5,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainings5 != null">
+        pressure_maintainingS5 = #{pressureMaintainings5,jdbcType=INTEGER},
+      </if>
+      <if test="pressureMaintainingt5 != null">
+        pressure_maintainingT5 = #{pressureMaintainingt5,jdbcType=REAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.PressureMaintaining">
+    update pressure_maintaining
+    set switchPosition = #{switchposition,jdbcType=INTEGER},
+      pressure_maintainingP1 = #{pressureMaintainingp1,jdbcType=INTEGER},
+      pressure_maintainingS1 = #{pressureMaintainings1,jdbcType=INTEGER},
+      pressure_maintainingT1 = #{pressureMaintainingt1,jdbcType=REAL},
+      pressure_maintainingP2 = #{pressureMaintainingp2,jdbcType=INTEGER},
+      pressure_maintainingS2 = #{pressureMaintainings2,jdbcType=INTEGER},
+      pressure_maintainingT2 = #{pressureMaintainingt2,jdbcType=REAL},
+      pressure_maintainingP3 = #{pressureMaintainingp3,jdbcType=INTEGER},
+      pressure_maintainingS3 = #{pressureMaintainings3,jdbcType=INTEGER},
+      pressure_maintainingT3 = #{pressureMaintainingt3,jdbcType=REAL},
+      pressure_maintainingP4 = #{pressureMaintainingp4,jdbcType=INTEGER},
+      pressure_maintainingS4 = #{pressureMaintainings4,jdbcType=INTEGER},
+      pressure_maintainingT4 = #{pressureMaintainingt4,jdbcType=REAL},
+      pressure_maintainingP5 = #{pressureMaintainingp5,jdbcType=INTEGER},
+      pressure_maintainingS5 = #{pressureMaintainings5,jdbcType=INTEGER},
+      pressure_maintainingT5 = #{pressureMaintainingt5,jdbcType=REAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

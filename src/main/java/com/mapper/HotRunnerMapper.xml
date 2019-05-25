@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.HotRunnerMapper">
+  <resultMap id="BaseResultMap" type="com.entity.HotRunner">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="temperatureController1_1" jdbcType="VARCHAR" property="temperaturecontroller11" />
+    <result column="temperatureController1_2" jdbcType="VARCHAR" property="temperaturecontroller12" />
+    <result column="temperatureController1_3" jdbcType="VARCHAR" property="temperaturecontroller13" />
+    <result column="temperatureController1_4" jdbcType="VARCHAR" property="temperaturecontroller14" />
+    <result column="temperatureController1_5" jdbcType="VARCHAR" property="temperaturecontroller15" />
+    <result column="temperatureController1_6" jdbcType="VARCHAR" property="temperaturecontroller16" />
+    <result column="temperatureController2_1" jdbcType="VARCHAR" property="temperaturecontroller21" />
+    <result column="temperatureController2_2" jdbcType="VARCHAR" property="temperaturecontroller22" />
+    <result column="temperatureController2_3" jdbcType="VARCHAR" property="temperaturecontroller23" />
+    <result column="temperatureController2_4" jdbcType="VARCHAR" property="temperaturecontroller24" />
+    <result column="temperatureController2_5" jdbcType="VARCHAR" property="temperaturecontroller25" />
+    <result column="temperatureController2_6" jdbcType="VARCHAR" property="temperaturecontroller26" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, temperatureController1_1, temperatureController1_2, temperatureController1_3, 
+    temperatureController1_4, temperatureController1_5, temperatureController1_6, temperatureController2_1, 
+    temperatureController2_2, temperatureController2_3, temperatureController2_4, temperatureController2_5, 
+    temperatureController2_6
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from hot_runner
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from hot_runner
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.HotRunner">
+    insert into hot_runner (id, temperatureController1_1, temperatureController1_2, 
+      temperatureController1_3, temperatureController1_4, 
+      temperatureController1_5, temperatureController1_6, 
+      temperatureController2_1, temperatureController2_2, 
+      temperatureController2_3, temperatureController2_4, 
+      temperatureController2_5, temperatureController2_6
+      )
+    values (#{id,jdbcType=INTEGER}, #{temperaturecontroller11,jdbcType=VARCHAR}, #{temperaturecontroller12,jdbcType=VARCHAR}, 
+      #{temperaturecontroller13,jdbcType=VARCHAR}, #{temperaturecontroller14,jdbcType=VARCHAR}, 
+      #{temperaturecontroller15,jdbcType=VARCHAR}, #{temperaturecontroller16,jdbcType=VARCHAR}, 
+      #{temperaturecontroller21,jdbcType=VARCHAR}, #{temperaturecontroller22,jdbcType=VARCHAR}, 
+      #{temperaturecontroller23,jdbcType=VARCHAR}, #{temperaturecontroller24,jdbcType=VARCHAR}, 
+      #{temperaturecontroller25,jdbcType=VARCHAR}, #{temperaturecontroller26,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.HotRunner">
+    insert into hot_runner
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="temperaturecontroller11 != null">
+        temperatureController1_1,
+      </if>
+      <if test="temperaturecontroller12 != null">
+        temperatureController1_2,
+      </if>
+      <if test="temperaturecontroller13 != null">
+        temperatureController1_3,
+      </if>
+      <if test="temperaturecontroller14 != null">
+        temperatureController1_4,
+      </if>
+      <if test="temperaturecontroller15 != null">
+        temperatureController1_5,
+      </if>
+      <if test="temperaturecontroller16 != null">
+        temperatureController1_6,
+      </if>
+      <if test="temperaturecontroller21 != null">
+        temperatureController2_1,
+      </if>
+      <if test="temperaturecontroller22 != null">
+        temperatureController2_2,
+      </if>
+      <if test="temperaturecontroller23 != null">
+        temperatureController2_3,
+      </if>
+      <if test="temperaturecontroller24 != null">
+        temperatureController2_4,
+      </if>
+      <if test="temperaturecontroller25 != null">
+        temperatureController2_5,
+      </if>
+      <if test="temperaturecontroller26 != null">
+        temperatureController2_6,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="temperaturecontroller11 != null">
+        #{temperaturecontroller11,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller12 != null">
+        #{temperaturecontroller12,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller13 != null">
+        #{temperaturecontroller13,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller14 != null">
+        #{temperaturecontroller14,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller15 != null">
+        #{temperaturecontroller15,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller16 != null">
+        #{temperaturecontroller16,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller21 != null">
+        #{temperaturecontroller21,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller22 != null">
+        #{temperaturecontroller22,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller23 != null">
+        #{temperaturecontroller23,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller24 != null">
+        #{temperaturecontroller24,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller25 != null">
+        #{temperaturecontroller25,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller26 != null">
+        #{temperaturecontroller26,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.HotRunner">
+    update hot_runner
+    <set>
+      <if test="temperaturecontroller11 != null">
+        temperatureController1_1 = #{temperaturecontroller11,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller12 != null">
+        temperatureController1_2 = #{temperaturecontroller12,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller13 != null">
+        temperatureController1_3 = #{temperaturecontroller13,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller14 != null">
+        temperatureController1_4 = #{temperaturecontroller14,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller15 != null">
+        temperatureController1_5 = #{temperaturecontroller15,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller16 != null">
+        temperatureController1_6 = #{temperaturecontroller16,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller21 != null">
+        temperatureController2_1 = #{temperaturecontroller21,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller22 != null">
+        temperatureController2_2 = #{temperaturecontroller22,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller23 != null">
+        temperatureController2_3 = #{temperaturecontroller23,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller24 != null">
+        temperatureController2_4 = #{temperaturecontroller24,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller25 != null">
+        temperatureController2_5 = #{temperaturecontroller25,jdbcType=VARCHAR},
+      </if>
+      <if test="temperaturecontroller26 != null">
+        temperatureController2_6 = #{temperaturecontroller26,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.HotRunner">
+    update hot_runner
+    set temperatureController1_1 = #{temperaturecontroller11,jdbcType=VARCHAR},
+      temperatureController1_2 = #{temperaturecontroller12,jdbcType=VARCHAR},
+      temperatureController1_3 = #{temperaturecontroller13,jdbcType=VARCHAR},
+      temperatureController1_4 = #{temperaturecontroller14,jdbcType=VARCHAR},
+      temperatureController1_5 = #{temperaturecontroller15,jdbcType=VARCHAR},
+      temperatureController1_6 = #{temperaturecontroller16,jdbcType=VARCHAR},
+      temperatureController2_1 = #{temperaturecontroller21,jdbcType=VARCHAR},
+      temperatureController2_2 = #{temperaturecontroller22,jdbcType=VARCHAR},
+      temperatureController2_3 = #{temperaturecontroller23,jdbcType=VARCHAR},
+      temperatureController2_4 = #{temperaturecontroller24,jdbcType=VARCHAR},
+      temperatureController2_5 = #{temperaturecontroller25,jdbcType=VARCHAR},
+      temperatureController2_6 = #{temperaturecontroller26,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

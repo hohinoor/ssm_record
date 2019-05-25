@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.KeyParametersMapper">
+  <resultMap id="BaseResultMap" type="com.entity.KeyParameters">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="blockTime" jdbcType="REAL" property="blocktime" />
+    <result column="shootGlueTime" jdbcType="REAL" property="shootgluetime" />
+    <result column="meltTime" jdbcType="REAL" property="melttime" />
+    <result column="meltTerminus" jdbcType="REAL" property="meltterminus" />
+    <result column="pressureSwitch" jdbcType="REAL" property="pressureswitch" />
+    <result column="shootGlueTerminus" jdbcType="REAL" property="shootglueterminus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, blockTime, shootGlueTime, meltTime, meltTerminus, pressureSwitch, shootGlueTerminus
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from key_parameters
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from key_parameters
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.KeyParameters">
+    insert into key_parameters (id, blockTime, shootGlueTime, 
+      meltTime, meltTerminus, pressureSwitch, 
+      shootGlueTerminus)
+    values (#{id,jdbcType=INTEGER}, #{blocktime,jdbcType=REAL}, #{shootgluetime,jdbcType=REAL}, 
+      #{melttime,jdbcType=REAL}, #{meltterminus,jdbcType=REAL}, #{pressureswitch,jdbcType=REAL}, 
+      #{shootglueterminus,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.KeyParameters">
+    insert into key_parameters
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="blocktime != null">
+        blockTime,
+      </if>
+      <if test="shootgluetime != null">
+        shootGlueTime,
+      </if>
+      <if test="melttime != null">
+        meltTime,
+      </if>
+      <if test="meltterminus != null">
+        meltTerminus,
+      </if>
+      <if test="pressureswitch != null">
+        pressureSwitch,
+      </if>
+      <if test="shootglueterminus != null">
+        shootGlueTerminus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="blocktime != null">
+        #{blocktime,jdbcType=REAL},
+      </if>
+      <if test="shootgluetime != null">
+        #{shootgluetime,jdbcType=REAL},
+      </if>
+      <if test="melttime != null">
+        #{melttime,jdbcType=REAL},
+      </if>
+      <if test="meltterminus != null">
+        #{meltterminus,jdbcType=REAL},
+      </if>
+      <if test="pressureswitch != null">
+        #{pressureswitch,jdbcType=REAL},
+      </if>
+      <if test="shootglueterminus != null">
+        #{shootglueterminus,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.KeyParameters">
+    update key_parameters
+    <set>
+      <if test="blocktime != null">
+        blockTime = #{blocktime,jdbcType=REAL},
+      </if>
+      <if test="shootgluetime != null">
+        shootGlueTime = #{shootgluetime,jdbcType=REAL},
+      </if>
+      <if test="melttime != null">
+        meltTime = #{melttime,jdbcType=REAL},
+      </if>
+      <if test="meltterminus != null">
+        meltTerminus = #{meltterminus,jdbcType=REAL},
+      </if>
+      <if test="pressureswitch != null">
+        pressureSwitch = #{pressureswitch,jdbcType=REAL},
+      </if>
+      <if test="shootglueterminus != null">
+        shootGlueTerminus = #{shootglueterminus,jdbcType=REAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.KeyParameters">
+    update key_parameters
+    set blockTime = #{blocktime,jdbcType=REAL},
+      shootGlueTime = #{shootgluetime,jdbcType=REAL},
+      meltTime = #{melttime,jdbcType=REAL},
+      meltTerminus = #{meltterminus,jdbcType=REAL},
+      pressureSwitch = #{pressureswitch,jdbcType=REAL},
+      shootGlueTerminus = #{shootglueterminus,jdbcType=REAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

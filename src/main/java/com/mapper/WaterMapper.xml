@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.WaterMapper">
+  <resultMap id="BaseResultMap" type="com.entity.Water">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="ordinaryWaterFront" jdbcType="VARCHAR" property="ordinarywaterfront" />
+    <result column="frozenWaterFront" jdbcType="VARCHAR" property="frozenwaterfront" />
+    <result column="moldTemperatureFront" jdbcType="REAL" property="moldtemperaturefront" />
+    <result column="ordinaryWaterBehind" jdbcType="VARCHAR" property="ordinarywaterbehind" />
+    <result column="frozenWaterBehind" jdbcType="VARCHAR" property="frozenwaterbehind" />
+    <result column="moldTemperatureBehind" jdbcType="REAL" property="moldtemperaturebehind" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, ordinaryWaterFront, frozenWaterFront, moldTemperatureFront, ordinaryWaterBehind, 
+    frozenWaterBehind, moldTemperatureBehind
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from water
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from water
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.Water">
+    insert into water (id, ordinaryWaterFront, frozenWaterFront, 
+      moldTemperatureFront, ordinaryWaterBehind, 
+      frozenWaterBehind, moldTemperatureBehind)
+    values (#{id,jdbcType=INTEGER}, #{ordinarywaterfront,jdbcType=VARCHAR}, #{frozenwaterfront,jdbcType=VARCHAR}, 
+      #{moldtemperaturefront,jdbcType=REAL}, #{ordinarywaterbehind,jdbcType=VARCHAR}, 
+      #{frozenwaterbehind,jdbcType=VARCHAR}, #{moldtemperaturebehind,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.Water">
+    insert into water
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="ordinarywaterfront != null">
+        ordinaryWaterFront,
+      </if>
+      <if test="frozenwaterfront != null">
+        frozenWaterFront,
+      </if>
+      <if test="moldtemperaturefront != null">
+        moldTemperatureFront,
+      </if>
+      <if test="ordinarywaterbehind != null">
+        ordinaryWaterBehind,
+      </if>
+      <if test="frozenwaterbehind != null">
+        frozenWaterBehind,
+      </if>
+      <if test="moldtemperaturebehind != null">
+        moldTemperatureBehind,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ordinarywaterfront != null">
+        #{ordinarywaterfront,jdbcType=VARCHAR},
+      </if>
+      <if test="frozenwaterfront != null">
+        #{frozenwaterfront,jdbcType=VARCHAR},
+      </if>
+      <if test="moldtemperaturefront != null">
+        #{moldtemperaturefront,jdbcType=REAL},
+      </if>
+      <if test="ordinarywaterbehind != null">
+        #{ordinarywaterbehind,jdbcType=VARCHAR},
+      </if>
+      <if test="frozenwaterbehind != null">
+        #{frozenwaterbehind,jdbcType=VARCHAR},
+      </if>
+      <if test="moldtemperaturebehind != null">
+        #{moldtemperaturebehind,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.Water">
+    update water
+    <set>
+      <if test="ordinarywaterfront != null">
+        ordinaryWaterFront = #{ordinarywaterfront,jdbcType=VARCHAR},
+      </if>
+      <if test="frozenwaterfront != null">
+        frozenWaterFront = #{frozenwaterfront,jdbcType=VARCHAR},
+      </if>
+      <if test="moldtemperaturefront != null">
+        moldTemperatureFront = #{moldtemperaturefront,jdbcType=REAL},
+      </if>
+      <if test="ordinarywaterbehind != null">
+        ordinaryWaterBehind = #{ordinarywaterbehind,jdbcType=VARCHAR},
+      </if>
+      <if test="frozenwaterbehind != null">
+        frozenWaterBehind = #{frozenwaterbehind,jdbcType=VARCHAR},
+      </if>
+      <if test="moldtemperaturebehind != null">
+        moldTemperatureBehind = #{moldtemperaturebehind,jdbcType=REAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.Water">
+    update water
+    set ordinaryWaterFront = #{ordinarywaterfront,jdbcType=VARCHAR},
+      frozenWaterFront = #{frozenwaterfront,jdbcType=VARCHAR},
+      moldTemperatureFront = #{moldtemperaturefront,jdbcType=REAL},
+      ordinaryWaterBehind = #{ordinarywaterbehind,jdbcType=VARCHAR},
+      frozenWaterBehind = #{frozenwaterbehind,jdbcType=VARCHAR},
+      moldTemperatureBehind = #{moldtemperaturebehind,jdbcType=REAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.EjectionMapper">
+  <resultMap id="BaseResultMap" type="com.entity.Ejection">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="ejection_S1" jdbcType="INTEGER" property="ejectionS1" />
+    <result column="ejection_P1" jdbcType="INTEGER" property="ejectionP1" />
+    <result column="ejection_T1" jdbcType="REAL" property="ejectionT1" />
+    <result column="ejection_m1" jdbcType="REAL" property="ejectionM1" />
+    <result column="ejection_S2" jdbcType="INTEGER" property="ejectionS2" />
+    <result column="ejection_P2" jdbcType="INTEGER" property="ejectionP2" />
+    <result column="ejection_T2" jdbcType="REAL" property="ejectionT2" />
+    <result column="ejection_m2" jdbcType="REAL" property="ejectionM2" />
+    <result column="ejection_S3" jdbcType="INTEGER" property="ejectionS3" />
+    <result column="ejection_P3" jdbcType="INTEGER" property="ejectionP3" />
+    <result column="ejection_T3" jdbcType="REAL" property="ejectionT3" />
+    <result column="ejection_m3" jdbcType="REAL" property="ejectionM3" />
+    <result column="ejection_S4" jdbcType="INTEGER" property="ejectionS4" />
+    <result column="ejection_P4" jdbcType="INTEGER" property="ejectionP4" />
+    <result column="ejection_T4" jdbcType="REAL" property="ejectionT4" />
+    <result column="ejection_m4" jdbcType="REAL" property="ejectionM4" />
+    <result column="ejection_S5" jdbcType="INTEGER" property="ejectionS5" />
+    <result column="ejection_P5" jdbcType="INTEGER" property="ejectionP5" />
+    <result column="ejection_T5" jdbcType="REAL" property="ejectionT5" />
+    <result column="ejection_m5" jdbcType="REAL" property="ejectionM5" />
+    <result column="ejection_S6" jdbcType="INTEGER" property="ejectionS6" />
+    <result column="ejection_P6" jdbcType="INTEGER" property="ejectionP6" />
+    <result column="ejection_T6" jdbcType="REAL" property="ejectionT6" />
+    <result column="ejection_m6" jdbcType="REAL" property="ejectionM6" />
+    <result column="ejection_S7" jdbcType="INTEGER" property="ejectionS7" />
+    <result column="ejection_P7" jdbcType="INTEGER" property="ejectionP7" />
+    <result column="ejection_T7" jdbcType="REAL" property="ejectionT7" />
+    <result column="ejection_m7" jdbcType="REAL" property="ejectionM7" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, ejection_S1, ejection_P1, ejection_T1, ejection_m1, ejection_S2, ejection_P2, 
+    ejection_T2, ejection_m2, ejection_S3, ejection_P3, ejection_T3, ejection_m3, ejection_S4, 
+    ejection_P4, ejection_T4, ejection_m4, ejection_S5, ejection_P5, ejection_T5, ejection_m5, 
+    ejection_S6, ejection_P6, ejection_T6, ejection_m6, ejection_S7, ejection_P7, ejection_T7, 
+    ejection_m7
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ejection
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ejection
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.Ejection">
+    insert into ejection (id, ejection_S1, ejection_P1, 
+      ejection_T1, ejection_m1, ejection_S2, 
+      ejection_P2, ejection_T2, ejection_m2, 
+      ejection_S3, ejection_P3, ejection_T3, 
+      ejection_m3, ejection_S4, ejection_P4, 
+      ejection_T4, ejection_m4, ejection_S5, 
+      ejection_P5, ejection_T5, ejection_m5, 
+      ejection_S6, ejection_P6, ejection_T6, 
+      ejection_m6, ejection_S7, ejection_P7, 
+      ejection_T7, ejection_m7)
+    values (#{id,jdbcType=INTEGER}, #{ejectionS1,jdbcType=INTEGER}, #{ejectionP1,jdbcType=INTEGER}, 
+      #{ejectionT1,jdbcType=REAL}, #{ejectionM1,jdbcType=REAL}, #{ejectionS2,jdbcType=INTEGER}, 
+      #{ejectionP2,jdbcType=INTEGER}, #{ejectionT2,jdbcType=REAL}, #{ejectionM2,jdbcType=REAL}, 
+      #{ejectionS3,jdbcType=INTEGER}, #{ejectionP3,jdbcType=INTEGER}, #{ejectionT3,jdbcType=REAL}, 
+      #{ejectionM3,jdbcType=REAL}, #{ejectionS4,jdbcType=INTEGER}, #{ejectionP4,jdbcType=INTEGER}, 
+      #{ejectionT4,jdbcType=REAL}, #{ejectionM4,jdbcType=REAL}, #{ejectionS5,jdbcType=INTEGER}, 
+      #{ejectionP5,jdbcType=INTEGER}, #{ejectionT5,jdbcType=REAL}, #{ejectionM5,jdbcType=REAL}, 
+      #{ejectionS6,jdbcType=INTEGER}, #{ejectionP6,jdbcType=INTEGER}, #{ejectionT6,jdbcType=REAL}, 
+      #{ejectionM6,jdbcType=REAL}, #{ejectionS7,jdbcType=INTEGER}, #{ejectionP7,jdbcType=INTEGER}, 
+      #{ejectionT7,jdbcType=REAL}, #{ejectionM7,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.Ejection">
+    insert into ejection
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="ejectionS1 != null">
+        ejection_S1,
+      </if>
+      <if test="ejectionP1 != null">
+        ejection_P1,
+      </if>
+      <if test="ejectionT1 != null">
+        ejection_T1,
+      </if>
+      <if test="ejectionM1 != null">
+        ejection_m1,
+      </if>
+      <if test="ejectionS2 != null">
+        ejection_S2,
+      </if>
+      <if test="ejectionP2 != null">
+        ejection_P2,
+      </if>
+      <if test="ejectionT2 != null">
+        ejection_T2,
+      </if>
+      <if test="ejectionM2 != null">
+        ejection_m2,
+      </if>
+      <if test="ejectionS3 != null">
+        ejection_S3,
+      </if>
+      <if test="ejectionP3 != null">
+        ejection_P3,
+      </if>
+      <if test="ejectionT3 != null">
+        ejection_T3,
+      </if>
+      <if test="ejectionM3 != null">
+        ejection_m3,
+      </if>
+      <if test="ejectionS4 != null">
+        ejection_S4,
+      </if>
+      <if test="ejectionP4 != null">
+        ejection_P4,
+      </if>
+      <if test="ejectionT4 != null">
+        ejection_T4,
+      </if>
+      <if test="ejectionM4 != null">
+        ejection_m4,
+      </if>
+      <if test="ejectionS5 != null">
+        ejection_S5,
+      </if>
+      <if test="ejectionP5 != null">
+        ejection_P5,
+      </if>
+      <if test="ejectionT5 != null">
+        ejection_T5,
+      </if>
+      <if test="ejectionM5 != null">
+        ejection_m5,
+      </if>
+      <if test="ejectionS6 != null">
+        ejection_S6,
+      </if>
+      <if test="ejectionP6 != null">
+        ejection_P6,
+      </if>
+      <if test="ejectionT6 != null">
+        ejection_T6,
+      </if>
+      <if test="ejectionM6 != null">
+        ejection_m6,
+      </if>
+      <if test="ejectionS7 != null">
+        ejection_S7,
+      </if>
+      <if test="ejectionP7 != null">
+        ejection_P7,
+      </if>
+      <if test="ejectionT7 != null">
+        ejection_T7,
+      </if>
+      <if test="ejectionM7 != null">
+        ejection_m7,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionS1 != null">
+        #{ejectionS1,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionP1 != null">
+        #{ejectionP1,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionT1 != null">
+        #{ejectionT1,jdbcType=REAL},
+      </if>
+      <if test="ejectionM1 != null">
+        #{ejectionM1,jdbcType=REAL},
+      </if>
+      <if test="ejectionS2 != null">
+        #{ejectionS2,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionP2 != null">
+        #{ejectionP2,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionT2 != null">
+        #{ejectionT2,jdbcType=REAL},
+      </if>
+      <if test="ejectionM2 != null">
+        #{ejectionM2,jdbcType=REAL},
+      </if>
+      <if test="ejectionS3 != null">
+        #{ejectionS3,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionP3 != null">
+        #{ejectionP3,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionT3 != null">
+        #{ejectionT3,jdbcType=REAL},
+      </if>
+      <if test="ejectionM3 != null">
+        #{ejectionM3,jdbcType=REAL},
+      </if>
+      <if test="ejectionS4 != null">
+        #{ejectionS4,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionP4 != null">
+        #{ejectionP4,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionT4 != null">
+        #{ejectionT4,jdbcType=REAL},
+      </if>
+      <if test="ejectionM4 != null">
+        #{ejectionM4,jdbcType=REAL},
+      </if>
+      <if test="ejectionS5 != null">
+        #{ejectionS5,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionP5 != null">
+        #{ejectionP5,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionT5 != null">
+        #{ejectionT5,jdbcType=REAL},
+      </if>
+      <if test="ejectionM5 != null">
+        #{ejectionM5,jdbcType=REAL},
+      </if>
+      <if test="ejectionS6 != null">
+        #{ejectionS6,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionP6 != null">
+        #{ejectionP6,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionT6 != null">
+        #{ejectionT6,jdbcType=REAL},
+      </if>
+      <if test="ejectionM6 != null">
+        #{ejectionM6,jdbcType=REAL},
+      </if>
+      <if test="ejectionS7 != null">
+        #{ejectionS7,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionP7 != null">
+        #{ejectionP7,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionT7 != null">
+        #{ejectionT7,jdbcType=REAL},
+      </if>
+      <if test="ejectionM7 != null">
+        #{ejectionM7,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.Ejection">
+    update ejection
+    <set>
+      <if test="ejectionS1 != null">
+        ejection_S1 = #{ejectionS1,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionP1 != null">
+        ejection_P1 = #{ejectionP1,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionT1 != null">
+        ejection_T1 = #{ejectionT1,jdbcType=REAL},
+      </if>
+      <if test="ejectionM1 != null">
+        ejection_m1 = #{ejectionM1,jdbcType=REAL},
+      </if>
+      <if test="ejectionS2 != null">
+        ejection_S2 = #{ejectionS2,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionP2 != null">
+        ejection_P2 = #{ejectionP2,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionT2 != null">
+        ejection_T2 = #{ejectionT2,jdbcType=REAL},
+      </if>
+      <if test="ejectionM2 != null">
+        ejection_m2 = #{ejectionM2,jdbcType=REAL},
+      </if>
+      <if test="ejectionS3 != null">
+        ejection_S3 = #{ejectionS3,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionP3 != null">
+        ejection_P3 = #{ejectionP3,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionT3 != null">
+        ejection_T3 = #{ejectionT3,jdbcType=REAL},
+      </if>
+      <if test="ejectionM3 != null">
+        ejection_m3 = #{ejectionM3,jdbcType=REAL},
+      </if>
+      <if test="ejectionS4 != null">
+        ejection_S4 = #{ejectionS4,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionP4 != null">
+        ejection_P4 = #{ejectionP4,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionT4 != null">
+        ejection_T4 = #{ejectionT4,jdbcType=REAL},
+      </if>
+      <if test="ejectionM4 != null">
+        ejection_m4 = #{ejectionM4,jdbcType=REAL},
+      </if>
+      <if test="ejectionS5 != null">
+        ejection_S5 = #{ejectionS5,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionP5 != null">
+        ejection_P5 = #{ejectionP5,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionT5 != null">
+        ejection_T5 = #{ejectionT5,jdbcType=REAL},
+      </if>
+      <if test="ejectionM5 != null">
+        ejection_m5 = #{ejectionM5,jdbcType=REAL},
+      </if>
+      <if test="ejectionS6 != null">
+        ejection_S6 = #{ejectionS6,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionP6 != null">
+        ejection_P6 = #{ejectionP6,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionT6 != null">
+        ejection_T6 = #{ejectionT6,jdbcType=REAL},
+      </if>
+      <if test="ejectionM6 != null">
+        ejection_m6 = #{ejectionM6,jdbcType=REAL},
+      </if>
+      <if test="ejectionS7 != null">
+        ejection_S7 = #{ejectionS7,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionP7 != null">
+        ejection_P7 = #{ejectionP7,jdbcType=INTEGER},
+      </if>
+      <if test="ejectionT7 != null">
+        ejection_T7 = #{ejectionT7,jdbcType=REAL},
+      </if>
+      <if test="ejectionM7 != null">
+        ejection_m7 = #{ejectionM7,jdbcType=REAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.Ejection">
+    update ejection
+    set ejection_S1 = #{ejectionS1,jdbcType=INTEGER},
+      ejection_P1 = #{ejectionP1,jdbcType=INTEGER},
+      ejection_T1 = #{ejectionT1,jdbcType=REAL},
+      ejection_m1 = #{ejectionM1,jdbcType=REAL},
+      ejection_S2 = #{ejectionS2,jdbcType=INTEGER},
+      ejection_P2 = #{ejectionP2,jdbcType=INTEGER},
+      ejection_T2 = #{ejectionT2,jdbcType=REAL},
+      ejection_m2 = #{ejectionM2,jdbcType=REAL},
+      ejection_S3 = #{ejectionS3,jdbcType=INTEGER},
+      ejection_P3 = #{ejectionP3,jdbcType=INTEGER},
+      ejection_T3 = #{ejectionT3,jdbcType=REAL},
+      ejection_m3 = #{ejectionM3,jdbcType=REAL},
+      ejection_S4 = #{ejectionS4,jdbcType=INTEGER},
+      ejection_P4 = #{ejectionP4,jdbcType=INTEGER},
+      ejection_T4 = #{ejectionT4,jdbcType=REAL},
+      ejection_m4 = #{ejectionM4,jdbcType=REAL},
+      ejection_S5 = #{ejectionS5,jdbcType=INTEGER},
+      ejection_P5 = #{ejectionP5,jdbcType=INTEGER},
+      ejection_T5 = #{ejectionT5,jdbcType=REAL},
+      ejection_m5 = #{ejectionM5,jdbcType=REAL},
+      ejection_S6 = #{ejectionS6,jdbcType=INTEGER},
+      ejection_P6 = #{ejectionP6,jdbcType=INTEGER},
+      ejection_T6 = #{ejectionT6,jdbcType=REAL},
+      ejection_m6 = #{ejectionM6,jdbcType=REAL},
+      ejection_S7 = #{ejectionS7,jdbcType=INTEGER},
+      ejection_P7 = #{ejectionP7,jdbcType=INTEGER},
+      ejection_T7 = #{ejectionT7,jdbcType=REAL},
+      ejection_m7 = #{ejectionM7,jdbcType=REAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

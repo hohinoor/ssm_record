@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.MeltMapper">
+  <resultMap id="BaseResultMap" type="com.entity.Melt">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="speed1" jdbcType="INTEGER" property="speed1" />
+    <result column="pressure1" jdbcType="INTEGER" property="pressure1" />
+    <result column="backpressure1" jdbcType="INTEGER" property="backpressure1" />
+    <result column="location1" jdbcType="REAL" property="location1" />
+    <result column="speed2" jdbcType="INTEGER" property="speed2" />
+    <result column="pressure2" jdbcType="INTEGER" property="pressure2" />
+    <result column="backpressure2" jdbcType="INTEGER" property="backpressure2" />
+    <result column="location2" jdbcType="REAL" property="location2" />
+    <result column="speed3" jdbcType="INTEGER" property="speed3" />
+    <result column="pressure3" jdbcType="INTEGER" property="pressure3" />
+    <result column="backpressure3" jdbcType="INTEGER" property="backpressure3" />
+    <result column="location3" jdbcType="REAL" property="location3" />
+    <result column="pressure4" jdbcType="INTEGER" property="pressure4" />
+    <result column="speed4" jdbcType="INTEGER" property="speed4" />
+    <result column="location4" jdbcType="REAL" property="location4" />
+    <result column="coolingTime" jdbcType="INTEGER" property="coolingtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, speed1, pressure1, backpressure1, location1, speed2, pressure2, backpressure2, 
+    location2, speed3, pressure3, backpressure3, location3, pressure4, speed4, location4, 
+    coolingTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from melt
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from melt
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.Melt">
+    insert into melt (id, speed1, pressure1, 
+      backpressure1, location1, speed2, 
+      pressure2, backpressure2, location2, 
+      speed3, pressure3, backpressure3, 
+      location3, pressure4, speed4, 
+      location4, coolingTime)
+    values (#{id,jdbcType=INTEGER}, #{speed1,jdbcType=INTEGER}, #{pressure1,jdbcType=INTEGER}, 
+      #{backpressure1,jdbcType=INTEGER}, #{location1,jdbcType=REAL}, #{speed2,jdbcType=INTEGER}, 
+      #{pressure2,jdbcType=INTEGER}, #{backpressure2,jdbcType=INTEGER}, #{location2,jdbcType=REAL}, 
+      #{speed3,jdbcType=INTEGER}, #{pressure3,jdbcType=INTEGER}, #{backpressure3,jdbcType=INTEGER}, 
+      #{location3,jdbcType=REAL}, #{pressure4,jdbcType=INTEGER}, #{speed4,jdbcType=INTEGER}, 
+      #{location4,jdbcType=REAL}, #{coolingtime,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.Melt">
+    insert into melt
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="speed1 != null">
+        speed1,
+      </if>
+      <if test="pressure1 != null">
+        pressure1,
+      </if>
+      <if test="backpressure1 != null">
+        backpressure1,
+      </if>
+      <if test="location1 != null">
+        location1,
+      </if>
+      <if test="speed2 != null">
+        speed2,
+      </if>
+      <if test="pressure2 != null">
+        pressure2,
+      </if>
+      <if test="backpressure2 != null">
+        backpressure2,
+      </if>
+      <if test="location2 != null">
+        location2,
+      </if>
+      <if test="speed3 != null">
+        speed3,
+      </if>
+      <if test="pressure3 != null">
+        pressure3,
+      </if>
+      <if test="backpressure3 != null">
+        backpressure3,
+      </if>
+      <if test="location3 != null">
+        location3,
+      </if>
+      <if test="pressure4 != null">
+        pressure4,
+      </if>
+      <if test="speed4 != null">
+        speed4,
+      </if>
+      <if test="location4 != null">
+        location4,
+      </if>
+      <if test="coolingtime != null">
+        coolingTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="speed1 != null">
+        #{speed1,jdbcType=INTEGER},
+      </if>
+      <if test="pressure1 != null">
+        #{pressure1,jdbcType=INTEGER},
+      </if>
+      <if test="backpressure1 != null">
+        #{backpressure1,jdbcType=INTEGER},
+      </if>
+      <if test="location1 != null">
+        #{location1,jdbcType=REAL},
+      </if>
+      <if test="speed2 != null">
+        #{speed2,jdbcType=INTEGER},
+      </if>
+      <if test="pressure2 != null">
+        #{pressure2,jdbcType=INTEGER},
+      </if>
+      <if test="backpressure2 != null">
+        #{backpressure2,jdbcType=INTEGER},
+      </if>
+      <if test="location2 != null">
+        #{location2,jdbcType=REAL},
+      </if>
+      <if test="speed3 != null">
+        #{speed3,jdbcType=INTEGER},
+      </if>
+      <if test="pressure3 != null">
+        #{pressure3,jdbcType=INTEGER},
+      </if>
+      <if test="backpressure3 != null">
+        #{backpressure3,jdbcType=INTEGER},
+      </if>
+      <if test="location3 != null">
+        #{location3,jdbcType=REAL},
+      </if>
+      <if test="pressure4 != null">
+        #{pressure4,jdbcType=INTEGER},
+      </if>
+      <if test="speed4 != null">
+        #{speed4,jdbcType=INTEGER},
+      </if>
+      <if test="location4 != null">
+        #{location4,jdbcType=REAL},
+      </if>
+      <if test="coolingtime != null">
+        #{coolingtime,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.Melt">
+    update melt
+    <set>
+      <if test="speed1 != null">
+        speed1 = #{speed1,jdbcType=INTEGER},
+      </if>
+      <if test="pressure1 != null">
+        pressure1 = #{pressure1,jdbcType=INTEGER},
+      </if>
+      <if test="backpressure1 != null">
+        backpressure1 = #{backpressure1,jdbcType=INTEGER},
+      </if>
+      <if test="location1 != null">
+        location1 = #{location1,jdbcType=REAL},
+      </if>
+      <if test="speed2 != null">
+        speed2 = #{speed2,jdbcType=INTEGER},
+      </if>
+      <if test="pressure2 != null">
+        pressure2 = #{pressure2,jdbcType=INTEGER},
+      </if>
+      <if test="backpressure2 != null">
+        backpressure2 = #{backpressure2,jdbcType=INTEGER},
+      </if>
+      <if test="location2 != null">
+        location2 = #{location2,jdbcType=REAL},
+      </if>
+      <if test="speed3 != null">
+        speed3 = #{speed3,jdbcType=INTEGER},
+      </if>
+      <if test="pressure3 != null">
+        pressure3 = #{pressure3,jdbcType=INTEGER},
+      </if>
+      <if test="backpressure3 != null">
+        backpressure3 = #{backpressure3,jdbcType=INTEGER},
+      </if>
+      <if test="location3 != null">
+        location3 = #{location3,jdbcType=REAL},
+      </if>
+      <if test="pressure4 != null">
+        pressure4 = #{pressure4,jdbcType=INTEGER},
+      </if>
+      <if test="speed4 != null">
+        speed4 = #{speed4,jdbcType=INTEGER},
+      </if>
+      <if test="location4 != null">
+        location4 = #{location4,jdbcType=REAL},
+      </if>
+      <if test="coolingtime != null">
+        coolingTime = #{coolingtime,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.Melt">
+    update melt
+    set speed1 = #{speed1,jdbcType=INTEGER},
+      pressure1 = #{pressure1,jdbcType=INTEGER},
+      backpressure1 = #{backpressure1,jdbcType=INTEGER},
+      location1 = #{location1,jdbcType=REAL},
+      speed2 = #{speed2,jdbcType=INTEGER},
+      pressure2 = #{pressure2,jdbcType=INTEGER},
+      backpressure2 = #{backpressure2,jdbcType=INTEGER},
+      location2 = #{location2,jdbcType=REAL},
+      speed3 = #{speed3,jdbcType=INTEGER},
+      pressure3 = #{pressure3,jdbcType=INTEGER},
+      backpressure3 = #{backpressure3,jdbcType=INTEGER},
+      location3 = #{location3,jdbcType=REAL},
+      pressure4 = #{pressure4,jdbcType=INTEGER},
+      speed4 = #{speed4,jdbcType=INTEGER},
+      location4 = #{location4,jdbcType=REAL},
+      coolingTime = #{coolingtime,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

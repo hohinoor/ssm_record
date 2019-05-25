@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.BarrelTemperatureMapper">
+  <resultMap id="BaseResultMap" type="com.entity.BarrelTemperature">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="nozzle" jdbcType="VARCHAR" property="nozzle" />
+    <result column="barrel_temperatureH1" jdbcType="INTEGER" property="barrelTemperatureh1" />
+    <result column="barrel_temperatureH2" jdbcType="INTEGER" property="barrelTemperatureh2" />
+    <result column="barrel_temperatureH3" jdbcType="INTEGER" property="barrelTemperatureh3" />
+    <result column="barrel_temperatureH4" jdbcType="INTEGER" property="barrelTemperatureh4" />
+    <result column="barrel_temperatureH5" jdbcType="INTEGER" property="barrelTemperatureh5" />
+    <result column="barrel_temperatureH6" jdbcType="INTEGER" property="barrelTemperatureh6" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, nozzle, barrel_temperatureH1, barrel_temperatureH2, barrel_temperatureH3, barrel_temperatureH4, 
+    barrel_temperatureH5, barrel_temperatureH6
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from barrel_temperature
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from barrel_temperature
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.BarrelTemperature">
+    insert into barrel_temperature (id, nozzle, barrel_temperatureH1, 
+      barrel_temperatureH2, barrel_temperatureH3, 
+      barrel_temperatureH4, barrel_temperatureH5, 
+      barrel_temperatureH6)
+    values (#{id,jdbcType=INTEGER}, #{nozzle,jdbcType=VARCHAR}, #{barrelTemperatureh1,jdbcType=INTEGER}, 
+      #{barrelTemperatureh2,jdbcType=INTEGER}, #{barrelTemperatureh3,jdbcType=INTEGER}, 
+      #{barrelTemperatureh4,jdbcType=INTEGER}, #{barrelTemperatureh5,jdbcType=INTEGER}, 
+      #{barrelTemperatureh6,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.BarrelTemperature">
+    insert into barrel_temperature
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="nozzle != null">
+        nozzle,
+      </if>
+      <if test="barrelTemperatureh1 != null">
+        barrel_temperatureH1,
+      </if>
+      <if test="barrelTemperatureh2 != null">
+        barrel_temperatureH2,
+      </if>
+      <if test="barrelTemperatureh3 != null">
+        barrel_temperatureH3,
+      </if>
+      <if test="barrelTemperatureh4 != null">
+        barrel_temperatureH4,
+      </if>
+      <if test="barrelTemperatureh5 != null">
+        barrel_temperatureH5,
+      </if>
+      <if test="barrelTemperatureh6 != null">
+        barrel_temperatureH6,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="nozzle != null">
+        #{nozzle,jdbcType=VARCHAR},
+      </if>
+      <if test="barrelTemperatureh1 != null">
+        #{barrelTemperatureh1,jdbcType=INTEGER},
+      </if>
+      <if test="barrelTemperatureh2 != null">
+        #{barrelTemperatureh2,jdbcType=INTEGER},
+      </if>
+      <if test="barrelTemperatureh3 != null">
+        #{barrelTemperatureh3,jdbcType=INTEGER},
+      </if>
+      <if test="barrelTemperatureh4 != null">
+        #{barrelTemperatureh4,jdbcType=INTEGER},
+      </if>
+      <if test="barrelTemperatureh5 != null">
+        #{barrelTemperatureh5,jdbcType=INTEGER},
+      </if>
+      <if test="barrelTemperatureh6 != null">
+        #{barrelTemperatureh6,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.BarrelTemperature">
+    update barrel_temperature
+    <set>
+      <if test="nozzle != null">
+        nozzle = #{nozzle,jdbcType=VARCHAR},
+      </if>
+      <if test="barrelTemperatureh1 != null">
+        barrel_temperatureH1 = #{barrelTemperatureh1,jdbcType=INTEGER},
+      </if>
+      <if test="barrelTemperatureh2 != null">
+        barrel_temperatureH2 = #{barrelTemperatureh2,jdbcType=INTEGER},
+      </if>
+      <if test="barrelTemperatureh3 != null">
+        barrel_temperatureH3 = #{barrelTemperatureh3,jdbcType=INTEGER},
+      </if>
+      <if test="barrelTemperatureh4 != null">
+        barrel_temperatureH4 = #{barrelTemperatureh4,jdbcType=INTEGER},
+      </if>
+      <if test="barrelTemperatureh5 != null">
+        barrel_temperatureH5 = #{barrelTemperatureh5,jdbcType=INTEGER},
+      </if>
+      <if test="barrelTemperatureh6 != null">
+        barrel_temperatureH6 = #{barrelTemperatureh6,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.BarrelTemperature">
+    update barrel_temperature
+    set nozzle = #{nozzle,jdbcType=VARCHAR},
+      barrel_temperatureH1 = #{barrelTemperatureh1,jdbcType=INTEGER},
+      barrel_temperatureH2 = #{barrelTemperatureh2,jdbcType=INTEGER},
+      barrel_temperatureH3 = #{barrelTemperatureh3,jdbcType=INTEGER},
+      barrel_temperatureH4 = #{barrelTemperatureh4,jdbcType=INTEGER},
+      barrel_temperatureH5 = #{barrelTemperatureh5,jdbcType=INTEGER},
+      barrel_temperatureH6 = #{barrelTemperatureh6,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
