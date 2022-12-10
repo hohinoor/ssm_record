@@ -9,7 +9,7 @@
     <name>ssm_record Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <properties>
-        <spring_version>4.3.18.RELEASE</spring_version>
+        <spring_version>6.0.0</spring_version>
         <mybatis.version>3.2.1</mybatis.version>
     </properties>
     <dependencies>
